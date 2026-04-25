@@ -1,4 +1,4 @@
-/* Clean Core Suply — single-page informacional */
+/* CleanCore Supply — single-page informacional */
 
 :root {
   /* Marca — primarios */
@@ -271,23 +271,16 @@ p:last-child {
   -webkit-text-fill-color: transparent;
 }
 
-.logo-word--clean {
+.logo-word--cleancore {
   background-image: linear-gradient(
     90deg,
     var(--color-brand-navy) 0%,
-    var(--color-brand-navy-soft) 100%
-  );
-}
-
-.logo-word--core {
-  background-image: linear-gradient(
-    90deg,
-    var(--color-brand-blue) 0%,
+    var(--color-brand-blue) 50%,
     var(--color-brand-blue-soft) 100%
   );
 }
 
-.logo-word--suply {
+.logo-word--supply {
   background-image: linear-gradient(
     90deg,
     var(--color-brand-green) 0%,
