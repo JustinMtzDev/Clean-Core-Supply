@@ -39,7 +39,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=22" />
+    <link rel="stylesheet" href="styles.css?v=26" />
   </head>
   <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -129,7 +129,7 @@
           />
           <span class="logo-text">
             <span class="logo-word logo-word--cleancore">CleanCore</span>
-            <span class="logo-word logo-word--supply">Supply</span>
+            <span class="logo-word logo-word--supply">-Supply-</span>
           </span>
         </a>
         <button
@@ -167,11 +167,19 @@
               <a class="btn btn-ghost" href="#products">View product lines</a>
             </div>
           </div>
-          <div class="hero-visual" role="img" aria-label="Abstract soft paper texture illustration">
+          <div class="hero-visual">
+            <img
+              class="hero-visual__img"
+              src="images/hero.png"
+              alt="CleanCore Supply delivery and janitorial supply visual"
+              width="1200"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
             <div class="hero-card">
-              <p class="hero-stat">Established supplier</p>
-              <p class="hero-stat-value">Statewide</p>
-              <p class="hero-stat-note">From the Bay Area to San Diego and inland corridors.</p>
+              <p class="hero-stat">Statewide Coverage</p>
+              <p class="hero-stat-value">Cleaning Supplies Delivered Across California</p>
             </div>
           </div>
         </div>
@@ -402,6 +410,8 @@
     <script>
       (function () {
         var ACCESS_PASSWORD = "Distribuidora9@";
+        var host = window.location.hostname;
+        var isLocalDev = host === "localhost" || host === "127.0.0.1" || host === "::1";
         var gate = document.getElementById("access-gate");
         var form = document.getElementById("access-gate-form");
         var input = document.getElementById("access-password");
@@ -411,6 +421,11 @@
         function unlock() {
           document.body.classList.remove("site-locked");
           if (gate) gate.setAttribute("hidden", "hidden");
+        }
+
+        if (isLocalDev) {
+          unlock();
+          return;
         }
 
         if (!form || !input) return;
