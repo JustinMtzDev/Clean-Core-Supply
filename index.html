@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coastal Comfort Paper | Wholesale Toilet Tissue | California</title>
+    <title>Clean Core Suply</title>
     <meta
       name="description"
-      content="Family-run wholesale toilet paper and tissue supplier serving businesses across California. Quality rolls, reliable delivery, competitive pricing."
+      content="Clean Core Suply — "
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=14" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -22,8 +22,19 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span>Coastal Comfort <strong>Paper</strong></span>
+          <img
+            class="logo-img"
+            src="images/logo_CC.png"
+            alt=""
+            width="140"
+            height="40"
+            decoding="async"
+          />
+          <span class="logo-text">
+            <span class="logo-word logo-word--clean">CLEAN</span>
+            <span class="logo-word logo-word--core">CORE</span>
+            <span class="logo-word logo-word--suply"> -SUPPLY- </span>
+          </span>
         </a>
         <button
           class="nav-toggle"
@@ -39,6 +50,7 @@
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#products">Products</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#service">Service area</a></li>
             <li><a href="#contact" class="nav-cta">Contact</a></li>
           </ul>
@@ -76,7 +88,7 @@
           <div>
             <h2>Who we are</h2>
             <p class="section-lede">
-              Coastal Comfort Paper is an informative-only site for a small distribution team
+              Clean Core Suply is an informative-only site for a small distribution team
               focused on <strong>toilet paper and related tissue</strong>—no online checkout here;
               we work directly with buyers by phone and email.
             </p>
@@ -132,6 +144,84 @@
         </div>
       </section>
 
+      <section class="section" id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <h2 id="gallery-title">Facilities &amp; delivery</h2>
+          <p class="section-sub">
+            Stock photos for now—swap in your warehouse, fleet, and on-site images when ready.
+          </p>
+          <div
+            class="carousel"
+            id="photo-carousel"
+            aria-roledescription="carousel"
+            aria-label="Facility and logistics images"
+          >
+            <div class="carousel__viewport">
+              <ul class="carousel__track" id="carousel-track">
+                <li class="carousel__slide" aria-hidden="false">
+                  <figure class="carousel__figure">
+                    <img
+                      src="https://picsum.photos/seed/ccswarehouse/1200/675"
+                      width="1200"
+                      height="675"
+                      alt="Warehouse aisle with stacked pallets"
+                      loading="eager"
+                    />
+                    <figcaption class="carousel__cap">Bulk storage ready for route packing</figcaption>
+                  </figure>
+                </li>
+                <li class="carousel__slide" aria-hidden="true">
+                  <figure class="carousel__figure">
+                    <img
+                      src="https://picsum.photos/seed/ccsfleet/1200/675"
+                      width="1200"
+                      height="675"
+                      alt="Delivery truck on a highway"
+                      loading="lazy"
+                    />
+                    <figcaption class="carousel__cap">Scheduled runs across California corridors</figcaption>
+                  </figure>
+                </li>
+                <li class="carousel__slide" aria-hidden="true">
+                  <figure class="carousel__figure">
+                    <img
+                      src="https://picsum.photos/seed/ccsoffice/1200/675"
+                      width="1200"
+                      height="675"
+                      alt="Modern office building exterior"
+                      loading="lazy"
+                    />
+                    <figcaption class="carousel__cap">Serving offices, retail, and hospitality</figcaption>
+                  </figure>
+                </li>
+                <li class="carousel__slide" aria-hidden="true">
+                  <figure class="carousel__figure">
+                    <img
+                      src="https://picsum.photos/seed/ccshotel/1200/675"
+                      width="1200"
+                      height="675"
+                      alt="Hotel lobby interior"
+                      loading="lazy"
+                    />
+                    <figcaption class="carousel__cap">Programs sized for high-traffic washrooms</figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+            <div class="carousel__controls">
+              <button type="button" class="carousel__btn carousel__btn--prev" id="carousel-prev" aria-controls="carousel-track" aria-label="Previous slide">
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Slide selection"></div>
+              <button type="button" class="carousel__btn carousel__btn--next" id="carousel-next" aria-controls="carousel-track" aria-label="Next slide">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <p class="visually-hidden" id="carousel-live" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="service">
         <div class="container split split-reverse">
           <div>
@@ -179,7 +269,7 @@
               </div>
               <div>
                 <p class="label">Email</p>
-                <a href="mailto:orders@coastalcomfortpaper.example">orders@coastalcomfortpaper.example</a>
+                <a href="mailto:orders@cleancoresuply.example">orders@cleancoresuply.example</a>
                 <p class="hint">Replace with your business email.</p>
               </div>
             </div>
@@ -209,7 +299,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="y"></span> Coastal Comfort Paper. All rights reserved.</p>
+        <p>© <span id="y"></span> Clean Core Suply. All rights reserved.</p>
         <p class="footer-note">Informative site only. No sales processed on this page.</p>
       </div>
     </footer>
@@ -230,6 +320,84 @@
           });
         });
       }
+
+      (function () {
+        var root = document.getElementById("photo-carousel");
+        if (!root) return;
+        var track = document.getElementById("carousel-track");
+        var prev = document.getElementById("carousel-prev");
+        var next = document.getElementById("carousel-next");
+        var dotsBox = document.getElementById("carousel-dots");
+        var live = document.getElementById("carousel-live");
+        var slides = track ? track.querySelectorAll(".carousel__slide") : [];
+        var n = slides.length;
+        if (!n || !prev || !next || !dotsBox) return;
+        var i = 0;
+
+        function setDots() {
+          dotsBox.innerHTML = "";
+          for (var d = 0; d < n; d++) {
+            (function (index) {
+              var b = document.createElement("button");
+              b.type = "button";
+              b.className = "carousel__dot" + (index === i ? " is-active" : "");
+              b.setAttribute("aria-label", "Go to slide " + (index + 1));
+              b.setAttribute("aria-pressed", index === i ? "true" : "false");
+              b.addEventListener("click", function () {
+                go(index);
+              });
+              dotsBox.appendChild(b);
+            })(d);
+          }
+        }
+
+        function announce() {
+          if (live) {
+            var cap = slides[i].querySelector(".carousel__cap");
+            live.textContent = cap ? cap.textContent : "Slide " + (i + 1);
+          }
+        }
+
+        var viewport = root.querySelector(".carousel__viewport");
+
+        function slideWidth() {
+          return viewport ? viewport.offsetWidth : 0;
+        }
+
+        function layout() {
+          var w = slideWidth();
+          if (!w) return;
+          slides.forEach(function (s) {
+            s.style.flex = "0 0 " + w + "px";
+          });
+          track.style.transform = "translateX(" + -i * w + "px)";
+        }
+
+        function go(index) {
+          i = ((index % n) + n) % n;
+          var w = slideWidth();
+          if (w) track.style.transform = "translateX(" + -i * w + "px)";
+          slides.forEach(function (s, j) {
+            s.setAttribute("aria-hidden", j === i ? "false" : "true");
+          });
+          setDots();
+          announce();
+        }
+
+        prev.addEventListener("click", function () {
+          go(i - 1);
+        });
+        next.addEventListener("click", function () {
+          go(i + 1);
+        });
+        window.addEventListener("resize", function () {
+          layout();
+          go(i);
+        });
+        layout();
+        setDots();
+        announce();
+      })();
     </script>
   </body>
 </html>
