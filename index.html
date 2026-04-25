@@ -39,11 +39,83 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=17" />
+    <link rel="stylesheet" href="styles.css?v=18" />
   </head>
-  <body>
+  <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
 
+    <div class="access-gate" id="access-gate" role="dialog" aria-modal="true" aria-labelledby="access-gate-title">
+      <div class="access-gate__panel">
+        <img
+          class="access-gate__image"
+          src="images/caution.png"
+          alt="Website under work"
+          width="720"
+          height="720"
+          decoding="async"
+        />
+        <h2 class="visually-hidden" id="access-gate-title">Access lock</h2>
+        <p class="access-gate__text">Enter password to continue.</p>
+        <form class="access-gate__form" id="access-gate-form">
+          <label class="access-gate__label" for="access-password">Password</label>
+          <div class="access-gate__input-wrap">
+            <input
+              class="access-gate__input"
+              id="access-password"
+              name="access-password"
+              type="password"
+              autocomplete="off"
+              required
+            />
+            <button
+              class="access-gate__toggle"
+              id="access-password-toggle"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              <span class="access-gate__icon access-gate__icon--eye" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M2.2 12C3.9 8.6 7.5 6.5 12 6.5S20.1 8.6 21.8 12c-1.7 3.4-5.3 5.5-9.8 5.5S3.9 15.4 2.2 12Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+              </span>
+              <span class="access-gate__icon access-gate__icon--eye-off" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M2.2 12C3.9 8.6 7.5 6.5 12 6.5c2.2 0 4.1.5 5.7 1.5M21.8 12c-.8 1.6-2 2.9-3.5 3.9A10.6 10.6 0 0 1 12 17.5c-4.5 0-8.1-2.1-9.8-5.5.8-1.6 2-2.9 3.5-3.9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9.9 9.9A3 3 0 0 1 14.1 14.1M3 3l18 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <button class="btn btn-primary access-gate__button" type="submit">Unlock</button>
+          <p class="access-gate__error" id="access-gate-error" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="site-shell" id="site-shell">
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#" aria-label="CleanCore Supply home">
@@ -325,8 +397,52 @@
         <p class="footer-note">Informative site only. No sales processed on this page.</p>
       </div>
     </footer>
+    </div>
 
     <script>
+      (function () {
+        var ACCESS_PASSWORD = "Distribuidora9@";
+        var gate = document.getElementById("access-gate");
+        var form = document.getElementById("access-gate-form");
+        var input = document.getElementById("access-password");
+        var toggle = document.getElementById("access-password-toggle");
+        var error = document.getElementById("access-gate-error");
+
+        function unlock() {
+          document.body.classList.remove("site-locked");
+          if (gate) gate.setAttribute("hidden", "hidden");
+        }
+
+        if (!form || !input) return;
+        setTimeout(function () {
+          input.focus();
+        }, 0);
+
+        if (toggle) {
+          toggle.addEventListener("click", function () {
+            var visible = input.type === "text";
+            input.type = visible ? "password" : "text";
+            toggle.setAttribute("aria-pressed", visible ? "false" : "true");
+            toggle.setAttribute("aria-label", visible ? "Show password" : "Hide password");
+            toggle.classList.toggle("is-on", !visible);
+            input.focus();
+          });
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (input.value === ACCESS_PASSWORD) {
+            unlock();
+            return;
+          }
+          if (error) {
+            error.textContent = "Incorrect password.";
+          }
+          input.value = "";
+          input.focus();
+        });
+      })();
+
       document.getElementById("y").textContent = new Date().getFullYear();
       var btn = document.getElementById("nav-toggle");
       var nav = document.getElementById("site-nav");

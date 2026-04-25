@@ -90,6 +90,150 @@ body {
   background: var(--page-sky-gradient), var(--color-bg);
 }
 
+.site-shell {
+  transition: filter 0.25s ease;
+}
+
+body.site-locked {
+  overflow: hidden;
+}
+
+body.site-locked .site-shell {
+  filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(8, 19, 36, 0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.access-gate[hidden] {
+  display: none;
+}
+
+.access-gate__panel {
+  width: min(92vw, 460px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 20px 60px rgba(6, 44, 95, 0.25);
+  padding: 1rem 1rem 1.15rem;
+  text-align: center;
+}
+
+.access-gate__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+.access-gate__text {
+  margin: 0 0 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.access-gate__form {
+  display: grid;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.access-gate__label {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+.access-gate__input-wrap {
+  position: relative;
+}
+
+.access-gate__input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  padding-right: 2.7rem;
+  border: 1px solid rgba(15, 50, 101, 0.2);
+  border-radius: 10px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.access-gate__input:focus {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 1px;
+}
+
+.access-gate__toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--color-brand-navy);
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1rem;
+  opacity: 0.82;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.access-gate__toggle:hover,
+.access-gate__toggle.is-on {
+  opacity: 1;
+}
+
+.access-gate__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: inline-flex;
+}
+
+.access-gate__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.access-gate__icon--eye-off {
+  display: none;
+}
+
+.access-gate__toggle.is-on .access-gate__icon--eye {
+  display: none;
+}
+
+.access-gate__toggle.is-on .access-gate__icon--eye-off {
+  display: inline-flex;
+}
+
+.access-gate__button {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.access-gate__error {
+  min-height: 1.2em;
+  margin: 0.15rem 0 0;
+  color: #b42318;
+  font-size: 0.85rem;
+}
+
 ::selection {
   background: rgba(17, 147, 218, 0.22);
   color: var(--color-ink);
