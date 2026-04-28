@@ -90,6 +90,10 @@ body {
   background: var(--page-sky-gradient), var(--color-bg);
 }
 
+#service .container {
+  width: min(100% - 2 * var(--space), 1240px);
+}
+
 .site-shell {
   transition: filter 0.25s ease;
 }
@@ -735,13 +739,21 @@ p:last-child {
 
 /* Sections */
 
+main > section {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+}
+
+main > section:first-child {
+  border-top: 0;
+}
+
 .section {
   padding: 4rem 0;
 }
 
 .section-alt {
   background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -752,6 +764,44 @@ p:last-child {
 
 .section-lede strong {
   color: var(--color-brand-navy);
+}
+
+/* Who we are: foto centrada + 16/9; #about gana a caché/CSS genérico */
+#about .about-visual-outer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+#about .about-visual {
+  position: relative;
+  width: min(400px, 100%);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--color-border);
+  box-shadow: 0 10px 40px rgba(15, 50, 101, 0.12);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+#about .about-visual__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1.5rem;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .section-sub {

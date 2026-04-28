@@ -39,7 +39,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=26" />
+    <link rel="stylesheet" href="styles.css?v=50" />
   </head>
   <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -188,12 +188,25 @@
       <section class="section" id="about">
         <div class="container split">
           <div>
-            <h2>Who we are</h2>
+            <h2>Who We Are</h2>
             <p class="section-lede">
               CleanCore Supply is an informative-only site for a small distribution team
               focused on <strong>cleaning supplies, paper products, and janitorial essentials</strong>—no
               online checkout here; we work directly with buyers by phone and email.
             </p>
+            <div class="about-visual-outer">
+              <div class="about-visual">
+                <img
+                  class="about-visual__img"
+                  src="images/who_we_are.jpg"
+                  alt="Who we are — the CleanCore Supply team"
+                  width="400"
+                  height="225"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
           <ul class="feature-list">
             <li>
@@ -246,84 +259,6 @@
         </div>
       </section>
 
-      <section class="section" id="gallery" aria-labelledby="gallery-title">
-        <div class="container">
-          <h2 id="gallery-title">Facilities &amp; delivery</h2>
-          <p class="section-sub">
-            Stock photos for now—swap in your warehouse, fleet, and on-site images when ready.
-          </p>
-          <div
-            class="carousel"
-            id="photo-carousel"
-            aria-roledescription="carousel"
-            aria-label="Facility and logistics images"
-          >
-            <div class="carousel__viewport">
-              <ul class="carousel__track" id="carousel-track">
-                <li class="carousel__slide" aria-hidden="false">
-                  <figure class="carousel__figure">
-                    <img
-                      src="https://picsum.photos/seed/ccswarehouse/1200/675"
-                      width="1200"
-                      height="675"
-                      alt="Warehouse aisle with stacked pallets"
-                      loading="eager"
-                    />
-                    <figcaption class="carousel__cap">Bulk storage ready for route packing</figcaption>
-                  </figure>
-                </li>
-                <li class="carousel__slide" aria-hidden="true">
-                  <figure class="carousel__figure">
-                    <img
-                      src="https://picsum.photos/seed/ccsfleet/1200/675"
-                      width="1200"
-                      height="675"
-                      alt="Delivery truck on a highway"
-                      loading="lazy"
-                    />
-                    <figcaption class="carousel__cap">Scheduled runs across California corridors</figcaption>
-                  </figure>
-                </li>
-                <li class="carousel__slide" aria-hidden="true">
-                  <figure class="carousel__figure">
-                    <img
-                      src="https://picsum.photos/seed/ccsoffice/1200/675"
-                      width="1200"
-                      height="675"
-                      alt="Modern office building exterior"
-                      loading="lazy"
-                    />
-                    <figcaption class="carousel__cap">Serving offices, retail, and hospitality</figcaption>
-                  </figure>
-                </li>
-                <li class="carousel__slide" aria-hidden="true">
-                  <figure class="carousel__figure">
-                    <img
-                      src="https://picsum.photos/seed/ccshotel/1200/675"
-                      width="1200"
-                      height="675"
-                      alt="Hotel lobby interior"
-                      loading="lazy"
-                    />
-                    <figcaption class="carousel__cap">Programs sized for high-traffic washrooms</figcaption>
-                  </figure>
-                </li>
-              </ul>
-            </div>
-            <div class="carousel__controls">
-              <button type="button" class="carousel__btn carousel__btn--prev" id="carousel-prev" aria-controls="carousel-track" aria-label="Previous slide">
-                <span aria-hidden="true">‹</span>
-              </button>
-              <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Slide selection"></div>
-              <button type="button" class="carousel__btn carousel__btn--next" id="carousel-next" aria-controls="carousel-track" aria-label="Next slide">
-                <span aria-hidden="true">›</span>
-              </button>
-            </div>
-            <p class="visually-hidden" id="carousel-live" aria-live="polite"></p>
-          </div>
-        </div>
-      </section>
-
       <section class="section" id="service">
         <div class="container split split-reverse">
           <div>
@@ -345,13 +280,12 @@
             <p class="map-hint">Exact address provided upon establishing a business relationship.</p>
           </div>
         </div>
-      </section>
-
-      <section class="section cta-band">
-        <div class="container cta-inner">
-          <h2>Questions about a recurring order?</h2>
-          <p>We are happy to walk through specs, cases per pallet, and restock frequency.</p>
-          <a class="btn btn-on-dark" href="#contact">Get in touch</a>
+        <div class="cta-band">
+          <div class="container cta-inner">
+            <h2>Questions about a recurring order?</h2>
+            <p>We are happy to walk through specs, cases per pallet, and restock frequency.</p>
+            <a class="btn btn-on-dark" href="#contact">Get in touch</a>
+          </div>
         </div>
       </section>
 
@@ -474,83 +408,7 @@
         });
       }
 
-      (function () {
-        var root = document.getElementById("photo-carousel");
-        if (!root) return;
-        var track = document.getElementById("carousel-track");
-        var prev = document.getElementById("carousel-prev");
-        var next = document.getElementById("carousel-next");
-        var dotsBox = document.getElementById("carousel-dots");
-        var live = document.getElementById("carousel-live");
-        var slides = track ? track.querySelectorAll(".carousel__slide") : [];
-        var n = slides.length;
-        if (!n || !prev || !next || !dotsBox) return;
-        var i = 0;
-
-        function setDots() {
-          dotsBox.innerHTML = "";
-          for (var d = 0; d < n; d++) {
-            (function (index) {
-              var b = document.createElement("button");
-              b.type = "button";
-              b.className = "carousel__dot" + (index === i ? " is-active" : "");
-              b.setAttribute("aria-label", "Go to slide " + (index + 1));
-              b.setAttribute("aria-pressed", index === i ? "true" : "false");
-              b.addEventListener("click", function () {
-                go(index);
-              });
-              dotsBox.appendChild(b);
-            })(d);
-          }
-        }
-
-        function announce() {
-          if (live) {
-            var cap = slides[i].querySelector(".carousel__cap");
-            live.textContent = cap ? cap.textContent : "Slide " + (i + 1);
-          }
-        }
-
-        var viewport = root.querySelector(".carousel__viewport");
-
-        function slideWidth() {
-          return viewport ? viewport.offsetWidth : 0;
-        }
-
-        function layout() {
-          var w = slideWidth();
-          if (!w) return;
-          slides.forEach(function (s) {
-            s.style.flex = "0 0 " + w + "px";
-          });
-          track.style.transform = "translateX(" + -i * w + "px)";
-        }
-
-        function go(index) {
-          i = ((index % n) + n) % n;
-          var w = slideWidth();
-          if (w) track.style.transform = "translateX(" + -i * w + "px)";
-          slides.forEach(function (s, j) {
-            s.setAttribute("aria-hidden", j === i ? "false" : "true");
-          });
-          setDots();
-          announce();
-        }
-
-        prev.addEventListener("click", function () {
-          go(i - 1);
-        });
-        next.addEventListener("click", function () {
-          go(i + 1);
-        });
-        window.addEventListener("resize", function () {
-          layout();
-          go(i);
-        });
-        layout();
-        setDots();
-        announce();
-      })();
+      
     </script>
   </body>
 </html>
