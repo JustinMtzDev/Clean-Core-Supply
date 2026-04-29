@@ -11,6 +11,8 @@
     <meta name="author" content="CleanCore Supply" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.cleancoresupply.com/" />
+    <link rel="icon" href="images/logo_cc.png" type="image/png" sizes="any" />
+    <link rel="apple-touch-icon" href="images/logo_cc.png" />
     <meta name="theme-color" content="#0f3265" />
     <meta name="geo.region" content="US-CA" />
     <meta name="language" content="English" />
@@ -21,7 +23,7 @@
         "name": "CleanCore Supply",
         "url": "https://www.cleancoresupply.com/",
         "description": "CleanCore Supply provides affordable cleaning supplies, paper products, and janitorial essentials with fast delivery for businesses in California.",
-        "image": "https://www.cleancoresupply.com/images/logo_CC.png",
+        "image": "https://www.cleancoresupply.com/images/logo_cc.png",
         "address": {
           "@type": "PostalAddress",
           "addressRegion": "CA",
@@ -39,7 +41,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=50" />
+    <link rel="stylesheet" href="styles.css?v=66" />
   </head>
   <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -121,10 +123,10 @@
         <a class="logo" href="#" aria-label="CleanCore Supply home">
           <img
             class="logo-img"
-            src="images/logo_CC.png"
+            src="images/logo_cc.png"
             alt=""
-            width="140"
-            height="40"
+            width="56"
+            height="56"
             decoding="async"
           />
           <span class="logo-text">
@@ -153,9 +155,21 @@
     </header>
 
     <main id="main">
+      <div class="hero-video-banner">
+        <video
+          class="hero-video-banner__video"
+          src="images/slogan.mp4?v=2"
+          poster="images/hero.png"
+          muted
+          playsinline
+          loop
+          autoplay
+          preload="metadata"
+        ></video>
+      </div>
       <section class="hero">
         <div class="container hero-grid">
-          <div class="hero-copy">
+          <div class="hero-copy hero-copy-card">
             <p class="eyebrow">Wholesale &amp; business supply · California</p>
             <h1>Cleaning supplies, paper &amp; janitorial for <em>California businesses</em></h1>
             <p class="lede">
@@ -391,6 +405,11 @@
           input.focus();
         });
       })();
+
+      var heroVid = document.querySelector(".hero-video-banner__video");
+      if (heroVid && heroVid.play) {
+        heroVid.play().catch(function () {});
+      }
 
       document.getElementById("y").textContent = new Date().getFullYear();
       var btn = document.getElementById("nav-toggle");
