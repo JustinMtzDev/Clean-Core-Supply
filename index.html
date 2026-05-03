@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CleanCore Supply | Cleaning Supplies, Paper Products &amp; Janitorial | California</title>
+    <title>CleanCore Supply | California</title>
     <meta
       name="description"
       content="CleanCore Supply provides affordable cleaning supplies, paper products, and janitorial essentials with fast delivery for businesses in California."
@@ -38,10 +38,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=67" />
+    <link rel="stylesheet" href="styles.css?v=93" />
   </head>
   <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -158,7 +158,9 @@
       <div class="hero-video-banner">
         <video
           class="hero-video-banner__video"
-          src="images/slogan.mp4?v=2"
+          src="images/slogan.mp4?v=3"
+          data-src-desktop="images/slogan.mp4?v=3"
+          data-src-mobile="images/slogan_phone.mp4?v=4"
           poster="images/hero.png"
           muted
           playsinline
@@ -166,6 +168,12 @@
           autoplay
           preload="metadata"
         ></video>
+        <div class="hero-slogan-overlay" aria-hidden="true">
+          <p class="hero-slogan-text">
+            <span class="hero-slogan-line">SMART SUPPLY.</span>
+            <span class="hero-slogan-line">CLEANER BUSSINESS.</span>
+          </p>
+        </div>
       </div>
       <section class="hero">
         <div class="container hero-grid">
@@ -407,8 +415,28 @@
       })();
 
       var heroVid = document.querySelector(".hero-video-banner__video");
-      if (heroVid && heroVid.play) {
-        heroVid.play().catch(function () {});
+      if (heroVid) {
+        var mobileVideoQuery = window.matchMedia("(max-width: 480px)");
+        var syncHeroVideoSource = function () {
+          var mobileSrc = heroVid.dataset.srcMobile;
+          var desktopSrc = heroVid.dataset.srcDesktop;
+          var nextSrc = mobileVideoQuery.matches ? mobileSrc : desktopSrc;
+          if (nextSrc && heroVid.getAttribute("src") !== nextSrc) {
+            heroVid.setAttribute("src", nextSrc);
+            heroVid.load();
+          }
+        };
+
+        syncHeroVideoSource();
+        if (mobileVideoQuery.addEventListener) {
+          mobileVideoQuery.addEventListener("change", syncHeroVideoSource);
+        } else if (mobileVideoQuery.addListener) {
+          mobileVideoQuery.addListener(syncHeroVideoSource);
+        }
+
+        if (heroVid.play) {
+          heroVid.play().catch(function () {});
+        }
       }
 
       document.getElementById("y").textContent = new Date().getFullYear();
