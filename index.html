@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Navbar: blanca sobre vídeo = bar | azul al scroll = pill. Forzar: data-navbar="bar" o "pill" -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -41,7 +42,11 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=93" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css?v=139" />
   </head>
   <body class="site-locked">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -119,21 +124,7 @@
 
     <div class="site-shell" id="site-shell">
     <header class="site-header">
-      <div class="container header-inner">
-        <a class="logo" href="#" aria-label="CleanCore Supply home">
-          <img
-            class="logo-img"
-            src="images/logo_CC.png"
-            alt=""
-            width="56"
-            height="56"
-            decoding="async"
-          />
-          <span class="logo-text">
-            <span class="logo-word logo-word--cleancore">CleanCore</span>
-            <span class="logo-word logo-word--supply">-Supply-</span>
-          </span>
-        </a>
+      <div class="container header-inner is-over-video">
         <button
           class="nav-toggle"
           type="button"
@@ -144,12 +135,56 @@
           <span class="visually-hidden">Open menu</span>
           <span class="nav-toggle-bars" aria-hidden="true"></span>
         </button>
+        <a class="logo logo--center" href="#" aria-label="CleanCore Supply home">
+          <span class="logo-mark" aria-hidden="true">
+            <img
+              class="logo-img logo-img--blue"
+              src="images/logo_cc_2.png?v=3"
+              alt=""
+              width="52"
+              height="52"
+            decoding="async"
+            hidden
+          />
+          <img
+            class="logo-img logo-img--light"
+            src="images/logo_cc.png?v=3"
+            alt=""
+            width="52"
+            height="52"
+            decoding="async"
+          />
+          </span>
+          <span class="logo-text">
+            <span class="logo-word logo-word--cleancore">
+              <span class="logo-word__split">
+                <span class="logo-word__clean">Clean</span><span class="logo-word__core">Core</span>
+              </span>
+              <span class="logo-word__full">CleanCore</span>
+            </span>
+            <span class="logo-word logo-word--supply">-Supply-</span>
+          </span>
+        </a>
         <nav class="nav" id="site-nav" aria-label="Main">
-          <ul>
-            <li><a href="#main">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-          </ul>
+          <div class="nav-zone nav-zone--left">
+            <ul class="nav-left">
+              <li><a href="#main" id="nav-home">Home</a></li>
+              <li><a href="#products" id="nav-products">Products</a></li>
+            </ul>
+          </div>
+          <div class="nav-zone nav-zone--right">
+            <ul class="nav-right">
+              <li>
+                <button class="nav-lang" id="lang-toggle" type="button" aria-label="Switch language">
+                  <span class="nav-lang__icon" aria-hidden="true">
+                    <i class="fa-solid fa-globe"></i>
+                  </span>
+                  <span class="nav-lang__label">EN</span>
+                </button>
+              </li>
+              <li><a href="#contact" class="nav-cta" id="nav-contact">Contact</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
@@ -439,7 +474,239 @@
         }
       }
 
-      document.getElementById("y").textContent = new Date().getFullYear();
+      var i18n = {
+        en: {
+          lang: "en",
+          title: "CleanCore Supply | California",
+          skip: "Skip to main content",
+          gateText: "Enter password to continue.",
+          gateLabel: "Password",
+          gateUnlock: "Unlock",
+          navHome: "Home",
+          navProducts: "Products",
+          navContact: "Contact",
+          navLangBtn: "EN",
+          navToggle: "Open menu",
+          eyebrow: "Wholesale & business supply · California",
+          heroTitle: "Cleaning supplies, paper & janitorial for <em>California businesses</em>",
+          heroLede:
+            "Affordable cleaning supplies, paper products, and janitorial essentials with fast delivery—serving offices, retail, hospitality, and more statewide.",
+          heroBtnPrimary: "Request a quote",
+          heroBtnGhost: "View product lines",
+          heroStat: "Statewide Coverage",
+          heroStatValue: "Cleaning Supplies Delivered Across California",
+          aboutTitle: "Who We Are",
+          aboutLede:
+            "CleanCore Supply is an informative-only site for a small distribution team focused on <strong>cleaning supplies, paper products, and janitorial essentials</strong>—no online checkout here; we work directly with buyers by phone and email.",
+          feat1:
+            "<strong>Consistent stock</strong> Standard and jumbo rolls, multi-ply options, and compatible dispensers for high-traffic restrooms.",
+          feat2:
+            "<strong>California operations</strong> Routes and lead times built around the Golden State’s major metro and business regions.",
+          feat3:
+            "<strong>Straightforward pricing</strong> Volume-based quotes for schools, property managers, restaurants, and offices.",
+          productsTitle: "What we offer",
+          productsSub:
+            "Product names and brands may vary; your quote will list exact SKUs, sheet counts, and case sizes.",
+          card1Title: "Standard & bulk bath tissue",
+          card1Body:
+            "Individually wrapped rolls and bulk packs for back-of-house storage—ideal for small businesses up to large facilities.",
+          card2Title: "Jumbo & mini-jumbo",
+          card2Body:
+            "High-capacity refills to reduce change-outs in busy restrooms; ask about compatibility with your existing dispensers.",
+          card3Title: "Commercial & hospitality",
+          card3Body:
+            "Tissue options aligned with front-of-house appearance and back-of-house efficiency for hotels, cafés, and public venues.",
+          serviceTitle: "Service across California",
+          serviceBody:
+            "We aim to support accounts throughout the state. Coverage, minimum order quantities, and delivery windows are confirmed when you <a href=\"#contact\">reach out</a> with your address and expected monthly volume.",
+          serviceL1: "Greater Los Angeles, Orange County & the Inland Empire",
+          serviceL2: "San Francisco Bay Area, Sacramento & Central Valley",
+          serviceL3: "San Diego County and select neighboring regions",
+          mapLabel: "Headquarters",
+          mapPlace: "California, United States",
+          mapHint: "Exact address provided upon establishing a business relationship.",
+          ctaTitle: "Questions about a recurring order?",
+          ctaBody: "We are happy to walk through specs, cases per pallet, and restock frequency.",
+          ctaBtn: "Get in touch",
+          contactTitle: "Contact",
+          contactLede:
+            "This page is for information only. Use the details below to request availability and pricing; we do not process payments on this website.",
+          phoneLabel: "Phone",
+          phoneHint: "Replace with your real number.",
+          emailLabel: "Email",
+          emailHint: "Replace with your business email.",
+          hours:
+            "<strong>Typical response:</strong> Monday–Friday, 8:00 a.m.–5:00 p.m. Pacific Time.",
+          formNote: "Demo form (not connected). Wire to your email or CRM when ready.",
+          formCompany: "Company name",
+          formEmail: "Email",
+          formMessage: "Message",
+          formPlaceholder: "Approximate monthly volume, locations…",
+          formSubmit: "Send (demo only)",
+          footerNote: "Informative site only. No sales processed on this page.",
+          footerRights: "CleanCore Supply. All rights reserved."
+        },
+        es: {
+          lang: "es",
+          title: "CleanCore Supply | California",
+          skip: "Saltar al contenido principal",
+          gateText: "Ingresa la contraseña para continuar.",
+          gateLabel: "Contraseña",
+          gateUnlock: "Desbloquear",
+          navHome: "Inicio",
+          navProducts: "Productos",
+          navContact: "Contacto",
+          navLangBtn: "ES",
+          navToggle: "Abrir menú",
+          eyebrow: "Suministro mayorista y empresarial · California",
+          heroTitle: "Suministros de limpieza, papel y janitorial para <em>negocios en California</em>",
+          heroLede:
+            "Suministros de limpieza, productos de papel y esenciales janitoriales a precio accesible, con entrega rápida para oficinas, retail, hospitalidad y más en todo el estado.",
+          heroBtnPrimary: "Solicitar cotización",
+          heroBtnGhost: "Ver líneas de producto",
+          heroStat: "Cobertura estatal",
+          heroStatValue: "Suministros de limpieza entregados en California",
+          aboutTitle: "Quiénes somos",
+          aboutLede:
+            "CleanCore Supply es un sitio solo informativo para un pequeño equipo de distribución enfocado en <strong>suministros de limpieza, productos de papel y esenciales janitoriales</strong>; no hay compra en línea, atendemos directamente por teléfono y correo.",
+          feat1:
+            "<strong>Inventario constante</strong> Rollos estándar y jumbo, opciones multicapa y dispensadores compatibles para baños de alto tráfico.",
+          feat2:
+            "<strong>Operación en California</strong> Rutas y tiempos de entrega diseñados para las principales zonas metropolitanas del estado.",
+          feat3:
+            "<strong>Precios claros</strong> Cotizaciones por volumen para escuelas, administradores de propiedades, restaurantes y oficinas.",
+          productsTitle: "Lo que ofrecemos",
+          productsSub:
+            "Los nombres y marcas pueden variar; tu cotización incluirá SKUs exactos, conteo de hojas y tamaños de caja.",
+          card1Title: "Papel higiénico estándar y a granel",
+          card1Body:
+            "Rollos envueltos individualmente y paquetes a granel para almacenamiento interno; ideal desde pequeños negocios hasta grandes instalaciones.",
+          card2Title: "Jumbo y mini-jumbo",
+          card2Body:
+            "Recargas de alta capacidad para reducir cambios en baños con mucho uso; pregunta por compatibilidad con tus dispensadores actuales.",
+          card3Title: "Comercial y hospitalidad",
+          card3Body:
+            "Opciones de papel alineadas con la imagen de frente de casa y la eficiencia operativa interna para hoteles, cafés y espacios públicos.",
+          serviceTitle: "Servicio en California",
+          serviceBody:
+            "Buscamos atender cuentas en todo el estado. La cobertura, mínimos de pedido y ventanas de entrega se confirman cuando <a href=\"#contact\">nos contactas</a> con tu dirección y volumen mensual estimado.",
+          serviceL1: "Gran Los Ángeles, Condado de Orange y el Inland Empire",
+          serviceL2: "Área de la Bahía, Sacramento y Valle Central",
+          serviceL3: "Condado de San Diego y regiones vecinas seleccionadas",
+          mapLabel: "Matriz",
+          mapPlace: "California, Estados Unidos",
+          mapHint: "Dirección exacta disponible al establecer relación comercial.",
+          ctaTitle: "¿Dudas sobre un pedido recurrente?",
+          ctaBody: "Con gusto revisamos especificaciones, cajas por tarima y frecuencia de resurtido.",
+          ctaBtn: "Contáctanos",
+          contactTitle: "Contacto",
+          contactLede:
+            "Esta página es solo informativa. Usa los datos de abajo para solicitar disponibilidad y precios; aquí no procesamos pagos.",
+          phoneLabel: "Teléfono",
+          phoneHint: "Reemplaza con tu número real.",
+          emailLabel: "Correo",
+          emailHint: "Reemplaza con tu correo empresarial.",
+          hours:
+            "<strong>Tiempo de respuesta típico:</strong> Lunes a viernes, 8:00 a.m.–5:00 p.m. (hora del Pacífico).",
+          formNote: "Formulario demo (no conectado). Enlázalo a tu correo o CRM cuando esté listo.",
+          formCompany: "Nombre de la empresa",
+          formEmail: "Correo",
+          formMessage: "Mensaje",
+          formPlaceholder: "Volumen mensual aproximado, ubicaciones…",
+          formSubmit: "Enviar (solo demo)",
+          footerNote: "Sitio solo informativo. No se procesan ventas en esta página.",
+          footerRights: "CleanCore Supply. Todos los derechos reservados."
+        }
+      };
+
+      function setText(selector, value) {
+        var el = document.querySelector(selector);
+        if (el) el.textContent = value;
+      }
+
+      function setHTML(selector, value) {
+        var el = document.querySelector(selector);
+        if (el) el.innerHTML = value;
+      }
+
+      function applyLocale(locale) {
+        var t = i18n[locale] || i18n.en;
+        document.documentElement.lang = t.lang;
+        document.title = t.title;
+
+        setText(".skip-link", t.skip);
+        setText(".access-gate__text", t.gateText);
+        setText(".access-gate__label", t.gateLabel);
+        setText(".access-gate__button", t.gateUnlock);
+        setText("#nav-home", t.navHome);
+        setText("#nav-products", t.navProducts);
+        setText("#nav-contact", t.navContact);
+        setText("#lang-toggle .nav-lang__label", t.navLangBtn);
+        setText(".nav-toggle .visually-hidden", t.navToggle);
+        setText(".eyebrow", t.eyebrow);
+        setHTML(".hero-copy h1", t.heroTitle);
+        setText(".lede", t.heroLede);
+        setText(".hero-actions .btn-primary", t.heroBtnPrimary);
+        setText(".hero-actions .btn-ghost", t.heroBtnGhost);
+        setText(".hero-stat", t.heroStat);
+        setText(".hero-stat-value", t.heroStatValue);
+        setText("#about h2", t.aboutTitle);
+        setHTML("#about .section-lede", t.aboutLede);
+        setHTML("#about .feature-list li:nth-child(1)", t.feat1);
+        setHTML("#about .feature-list li:nth-child(2)", t.feat2);
+        setHTML("#about .feature-list li:nth-child(3)", t.feat3);
+        setText("#products h2", t.productsTitle);
+        setText("#products .section-sub", t.productsSub);
+        setText("#products .card:nth-child(1) h3", t.card1Title);
+        setText("#products .card:nth-child(1) p", t.card1Body);
+        setText("#products .card:nth-child(2) h3", t.card2Title);
+        setText("#products .card:nth-child(2) p", t.card2Body);
+        setText("#products .card:nth-child(3) h3", t.card3Title);
+        setText("#products .card:nth-child(3) p", t.card3Body);
+        setText("#service .split-reverse h2", t.serviceTitle);
+        setHTML("#service .split-reverse > div:first-child > p", t.serviceBody);
+        setText("#service .checklist li:nth-child(1)", t.serviceL1);
+        setText("#service .checklist li:nth-child(2)", t.serviceL2);
+        setText("#service .checklist li:nth-child(3)", t.serviceL3);
+        setText(".map-label", t.mapLabel);
+        setText(".map-place", t.mapPlace);
+        setText(".map-hint", t.mapHint);
+        setText(".cta-inner h2", t.ctaTitle);
+        setText(".cta-inner p", t.ctaBody);
+        setText(".cta-inner .btn", t.ctaBtn);
+        setText("#contact h2", t.contactTitle);
+        setText("#contact .section-lede", t.contactLede);
+        setText("#contact .contact-channels > div:nth-child(1) .label", t.phoneLabel);
+        setText("#contact .contact-channels > div:nth-child(1) .hint", t.phoneHint);
+        setText("#contact .contact-channels > div:nth-child(2) .label", t.emailLabel);
+        setText("#contact .contact-channels > div:nth-child(2) .hint", t.emailHint);
+        setHTML("#contact .hours", t.hours);
+        setText("#contact .form-note", t.formNote);
+        setText("#contact label:nth-of-type(1) span", t.formCompany);
+        setText("#contact label:nth-of-type(2) span", t.formEmail);
+        setText("#contact label:nth-of-type(3) span", t.formMessage);
+        var textarea = document.querySelector("#contact textarea[name='message']");
+        if (textarea) textarea.setAttribute("placeholder", t.formPlaceholder);
+        setText("#contact .contact-form .btn-primary", t.formSubmit);
+        setText(".footer-note", t.footerNote);
+        setHTML(".footer-inner p:first-child", "© <span id=\"y\"></span> " + t.footerRights);
+        var yearEl = document.getElementById("y");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      }
+
+      var currentLocale = "en";
+      var langToggle = document.getElementById("lang-toggle");
+      if (langToggle) {
+        langToggle.addEventListener("click", function () {
+          currentLocale = currentLocale === "en" ? "es" : "en";
+          applyLocale(currentLocale);
+        });
+      }
+
+      applyLocale(currentLocale);
+
+      var yearNode = document.getElementById("y");
+      if (yearNode) yearNode.textContent = new Date().getFullYear();
       var btn = document.getElementById("nav-toggle");
       var nav = document.getElementById("site-nav");
       if (btn && nav) {
@@ -455,7 +722,25 @@
         });
       }
 
-      
+      var headerInner = document.querySelector(".header-inner");
+      var heroVideoBanner = document.querySelector(".hero-video-banner");
+      var siteHeader = document.querySelector(".site-header");
+      var logoImgBlue = document.querySelector(".logo-img--blue");
+      var logoImgLight = document.querySelector(".logo-img--light");
+      if (headerInner && heroVideoBanner) {
+        var syncNavOverVideo = function () {
+          var headerH = siteHeader ? siteHeader.offsetHeight : 72;
+          var videoBottom = heroVideoBanner.getBoundingClientRect().bottom;
+          var overVideo = videoBottom > headerH + 4;
+          headerInner.classList.toggle("is-over-video", overVideo);
+          if (logoImgBlue) logoImgBlue.hidden = overVideo;
+          if (logoImgLight) logoImgLight.hidden = !overVideo;
+        };
+        syncNavOverVideo();
+        window.addEventListener("scroll", syncNavOverVideo, { passive: true });
+        window.addEventListener("resize", syncNavOverVideo);
+      }
+
     </script>
   </body>
 </html>
